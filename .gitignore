@@ -4,3 +4,7 @@
 *.code-workspace
 __pycache__/
 *.py[cod]
+digits_to_annotate/
+raw_images/
+calibration_images/
+.ipynb_checkpoints
