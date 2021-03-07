@@ -91,9 +91,10 @@ class AutomaticMeterReader:
             cv2.rectangle(res, (x0 - 1, y0 - 1), (x0 + dx, y0 + dy), (0, 0, 255), 1)
 
         # Measurement
+        x0, y0, dx, dy = self.meter_config["register"]["roi"]
         predictions_str = " | ".join(["%s" % (str(p) if p < 10 else "-") for p in self.predictions])
         confidence_str = "|".join(["%.0f" % (1e2 * p) for p in self.confidences])
-        cv2.putText(res, predictions_str, (190, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 2, cv2.LINE_AA) 
+        cv2.putText(res, predictions_str, (x0 + dx // len(self.meter_config["register"]["digits"]) // 4, y0 - dy // 4), cv2.FONT_HERSHEY_SIMPLEX, 1.0 / 465.0 * dx, (0, 0, 255), 2, cv2.LINE_AA) 
         cv2.putText(res, confidence_str, (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (0, 0, 255), 3, cv2.LINE_AA) 
 
         self.img_debug = res
