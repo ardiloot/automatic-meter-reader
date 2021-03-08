@@ -66,7 +66,10 @@ class AutomaticMeterReader:
         predictions, confidences = self.mdr.run(digit_imgs)
         
         res = 0.0
-        for i, digit_conf in enumerate(self.meter_config["register"]["digits"]):
+        for i, digit_conf in enumerate(self.meter_config["register"]["digits"][:-1]):
+            if predictions[i] == 10:
+                res = None
+                break
             res += digit_conf["multiplier"] * predictions[i]
         
         self.digit_imgs = digit_imgs
@@ -92,10 +95,18 @@ class AutomaticMeterReader:
 
         # Measurement
         x0, y0, dx, dy = self.meter_config["register"]["roi"]
-        predictions_str = " | ".join(["%s" % (str(p) if p < 10 else "-") for p in self.predictions])
-        confidence_str = "|".join(["%.0f" % (1e2 * p) for p in self.confidences])
-        cv2.putText(res, predictions_str, (x0 + dx // len(self.meter_config["register"]["digits"]) // 4, y0 - dy // 4), cv2.FONT_HERSHEY_SIMPLEX, 1.0 / 465.0 * dx, (0, 0, 255), 2, cv2.LINE_AA) 
-        cv2.putText(res, confidence_str, (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 1.1, (0, 0, 255), 3, cv2.LINE_AA) 
+        font_size = 1.0 / 465.0 * dx
+        for i, digit_conf in enumerate(self.meter_config["register"]["digits"]):
+            x0, y0, dx, dy = digit_conf["roi"]
+            if self.confidences[i] < 0.9:
+                color = (0, 0, 255)
+            elif self.confidences[i] < 0.995:
+                color = (33, 137, 235)
+            else:
+                color = (56, 245, 39)
+            
+            cv2.putText(res, "%s" % (str(self.predictions[i]) if self.predictions[i] <= 9 else "-"), (x0 + dx // 4, y0 - dy // 4), cv2.FONT_HERSHEY_SIMPLEX, font_size, color, 3, cv2.LINE_AA)    
+            cv2.putText(res, "%.0f" % (1e2 * self.confidences[i]), (x0 - dx // 5, y0 - dy), cv2.FONT_HERSHEY_SIMPLEX, 0.8 * font_size, color, 3, cv2.LINE_AA)    
 
         self.img_debug = res
 
