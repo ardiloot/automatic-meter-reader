@@ -7,5 +7,8 @@ setup(name="automatic-meter-reader",
     author_email="ardi.loot@outlook.com",
     packages=["automatic_meter_reader"],
     zip_safe=False,
-    include_package_data=True
+    include_package_data=True,
+    install_requires=[
+        "meter-digits-recognizer",
+    ]
 )
