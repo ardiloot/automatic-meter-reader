@@ -15,7 +15,7 @@ class AutomaticMeterReader:
         with open(os.path.join(PACKAGE_DIR, "cameras", "%s.json" % (self.camera_model)), "r") as f:
             camcalib = json.load(f)
         self.camera_matrix = np.resize(np.array(camcalib["camera_matrix"]), (3, 3))
-        self.distortion_coefs = np.resize(np.array(camcalib["distortion_coefs"]), (1, -1))
+        self.distortion_coefs = np.resize(np.array(camcalib["distortion_coefs"]), (1, len(camcalib["distortion_coefs"])))
         self.new_camera_matrix = np.resize(np.array(camcalib["new_camera_matrix"]), (3, 3))
         
         with open(os.path.join(PACKAGE_DIR, "meter_models", meter_model, "meter_config.json"), "r") as f:
