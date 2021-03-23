@@ -6,6 +6,12 @@ from meter_digits_recognizer import MeterDigitsRecognizer
 
 PACKAGE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+def rotate_image(image, angle_deg):
+    image_center = tuple((np.array(image.shape[1::-1]) - 1.0) / 2)
+    rot_mat = cv2.getRotationMatrix2D(image_center, angle_deg, 1.0)
+    result = cv2.warpAffine(image, rot_mat, image.shape[1::-1], flags=cv2.INTER_LINEAR)
+    return result
+
 class AutomaticMeterReader:
     
     def __init__(self, camera_model, meter_model):
@@ -33,14 +39,21 @@ class AutomaticMeterReader:
 
     def readout(self, img):
         self.img_original = img
-        self.undistort()
+        self.undistort_and_prepare()
         self.align_image()
         self.get_measurement()
         self.make_debug_image()
         return self.measurement
     
-    def undistort(self):
+    def undistort_and_prepare(self):
         self.img_undistorted = cv2.undistort(self.img_original, self.camera_matrix, self.distortion_coefs, None, self.new_camera_matrix)
+        # TODO: Integrate into new_camera_matrix
+        if "pre_rotation_angle_deg" in self.meter_config:
+            self.img_undistorted = rotate_image(self.img_undistorted.copy(), self.meter_config["pre_rotation_angle_deg"])
+        if "pre_crop" in self.meter_config:
+            x0, y0, dx, dy = self.meter_config["pre_crop"]
+            x1, y1 = min(self.img_undistorted.shape[1], x0 + dx), min(self.img_undistorted.shape[0], y0 + dy)
+            self.img_undistorted = self.img_undistorted[y0:y1, x0:x1]
         
     def align_image(self):
         src_points, dst_points = [], []
@@ -111,12 +124,4 @@ class AutomaticMeterReader:
         self.img_debug = res
 
 if __name__ == "__main__":
-    import cv2
-    img = cv2.imread(os.path.join(PACKAGE_DIR, "..", "test_image.jpg"))
-    print(img.shape)
-    
-    camera_model = "espcam_120_deg"
-    meter_model = "lorenz_1997"
-    amr = AutomaticMeterReader(camera_model, meter_model)
-    print (amr.readout(img))
-    
+    pass
