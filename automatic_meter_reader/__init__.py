@@ -2,6 +2,7 @@ import os
 import cv2
 import json
 import numpy as np
+from datetime import datetime
 from meter_digits_recognizer import MeterDigitsRecognizer
 
 PACKAGE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -92,6 +93,8 @@ class AutomaticMeterReader:
     
     def make_debug_image(self):
         res = self.img_aligned.copy()
+        stamp_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        print("stamp_str:", stamp_str)
 
         # Templates
         for template_conf in self.meter_config["templates"]:
@@ -120,6 +123,9 @@ class AutomaticMeterReader:
             
             cv2.putText(res, "%s" % (str(self.predictions[i]) if self.predictions[i] <= 9 else "-"), (x0 + dx // 4, y0 - dy // 4), cv2.FONT_HERSHEY_SIMPLEX, font_size, color, 3, cv2.LINE_AA)    
             cv2.putText(res, "%.0f" % (1e2 * self.confidences[i]), (x0 - dx // 5, y0 - dy), cv2.FONT_HERSHEY_SIMPLEX, 0.8 * font_size, color, 3, cv2.LINE_AA)    
+
+        # Stamp
+        cv2.putText(res, stamp_str, (int(10 * font_size), int(res.shape[0] - 10 * font_size)), cv2.FONT_HERSHEY_SIMPLEX, 0.8 * font_size, color, 3, cv2.LINE_AA)    
 
         self.img_debug = res
 
