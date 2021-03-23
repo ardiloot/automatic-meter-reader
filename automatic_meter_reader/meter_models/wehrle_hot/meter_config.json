@@ -12,24 +12,24 @@
         },
         {
             "roi": [
-                55,
-                325,
-                64,
-                72
+                46,
+                320,
+                74,
+                82
             ],
             "file": "template_1.jpg"
         },
         {
             "roi": [
-                265,
+                262,
                 350,
-                25,
+                28,
                 50
             ],
             "file": "template_2.jpg"
         }
     ],
-    "pre_rotation_angle_deg": 0,
+    "pre_rotation_angle_deg": 0.0,
     "pre_crop": [
         0,
         0,
