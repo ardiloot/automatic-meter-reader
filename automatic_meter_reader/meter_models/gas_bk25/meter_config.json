@@ -45,7 +45,7 @@
                     35,
                     50
                 ],
-                "multiplier": 100000.0
+                "multiplier": 10000.0
             },
             {
                 "roi": [
@@ -54,7 +54,7 @@
                     35,
                     50
                 ],
-                "multiplier": 10000.0
+                "multiplier": 1000.0
             },
             {
                 "roi": [
@@ -63,7 +63,7 @@
                     35,
                     50
                 ],
-                "multiplier": 1000.0
+                "multiplier": 100.0
             },
             {
                 "roi": [
@@ -72,7 +72,7 @@
                     35,
                     50
                 ],
-                "multiplier": 100.0
+                "multiplier": 10.0
             },
             {
                 "roi": [
@@ -81,7 +81,7 @@
                     35,
                     50
                 ],
-                "multiplier": 10.0
+                "multiplier": 1.0
             },
             {
                 "roi": [
@@ -90,7 +90,7 @@
                     35,
                     50
                 ],
-                "multiplier": 1.0
+                "multiplier": 0.1
             },
             {
                 "roi": [
@@ -99,7 +99,7 @@
                     35,
                     50
                 ],
-                "multiplier": 0.1
+                "multiplier": 0.01
             }
         ],
         "roi": [
