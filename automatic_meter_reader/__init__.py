@@ -80,7 +80,7 @@ class AutomaticMeterReader:
         predictions, confidences = self.mdr.run(digit_imgs)
         
         res = 0.0
-        for i, digit_conf in enumerate(self.meter_config["register"]["digits"][:-1]):
+        for i, digit_conf in enumerate(self.meter_config["register"]["digits"]):
             if predictions[i] == 10:
                 res = None
                 break
