@@ -13,4 +13,4 @@ def test_readout():
 
     assert res is not None
     print("Measurement: %.3f" % (res))
-    assert abs(res - 932.953) < 1e-2
+    assert abs(res - 935.780) < 1e-2
