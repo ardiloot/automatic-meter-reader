@@ -83,7 +83,7 @@ class AutomaticMeterReader:
         digits = self.meter_config["register"]["digits"]
         for i, digit_conf in enumerate(digits):
             if predictions[i] == 10:
-                if i + 1 < len(digits)
+                if i + 1 < len(digits):
                     res = None
                 break
             res += digit_conf["multiplier"] * predictions[i]
