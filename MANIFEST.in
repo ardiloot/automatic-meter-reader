@@ -1,2 +1,4 @@
-recursive-include automatic_meter_reader/cameras *
-recursive-include automatic_meter_reader/meter_models *
+prune .github
+prune .vscode
+exclude *.ipynb
+exclude .gitignore
