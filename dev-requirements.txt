@@ -12,6 +12,10 @@ backcall==0.2.0
     # via ipython
 build==0.10.0
     # via pip-tools
+certifi==2022.12.7
+    # via requests
+charset-normalizer==3.0.1
+    # via requests
 click==8.1.3
     # via pip-tools
 colorama==0.4.6
@@ -38,6 +42,8 @@ flake8==6.0.0
     # via automatic-meter-reader (setup.py)
 fonttools==4.38.0
     # via matplotlib
+idna==3.4
+    # via requests
 iniconfig==2.0.0
     # via pytest
 ipykernel==6.21.1
@@ -77,7 +83,7 @@ matplotlib-inline==0.1.6
     #   ipython
 mccabe==0.7.0
     # via flake8
-meter-digits-recognizer==0.1.6
+meter-digits-recognizer==0.1.9
     # via automatic-meter-reader (setup.py)
 nest-asyncio==1.5.6
     # via ipykernel
@@ -87,7 +93,9 @@ numpy==1.24.1
     #   contourpy
     #   ipympl
     #   matplotlib
+    #   meter-digits-recognizer
     #   opencv-python
+    #   torchvision
 opencv-python==4.7.0.68
     # via
     #   automatic-meter-reader (setup.py)
@@ -107,6 +115,7 @@ pillow==9.4.0
     #   ipympl
     #   matplotlib
     #   meter-digits-recognizer
+    #   torchvision
 pip-tools==6.12.2
     # via automatic-meter-reader (setup.py)
 platformdirs==2.6.2
@@ -139,6 +148,8 @@ pyzmq==25.0.0
     # via
     #   ipykernel
     #   jupyter-client
+requests==2.28.2
+    # via torchvision
 six==1.16.0
     # via python-dateutil
 stack-data==0.6.2
@@ -148,6 +159,12 @@ tomli==2.0.1
     #   build
     #   pyproject-hooks
     #   pytest
+torch==1.13.1
+    # via
+    #   meter-digits-recognizer
+    #   torchvision
+torchvision==0.14.1
+    # via meter-digits-recognizer
 tornado==6.2
     # via
     #   ipykernel
@@ -162,6 +179,12 @@ traitlets==5.9.0
     #   jupyter-client
     #   jupyter-core
     #   matplotlib-inline
+typing-extensions==4.4.0
+    # via
+    #   torch
+    #   torchvision
+urllib3==1.26.14
+    # via requests
 wcwidth==0.2.6
     # via prompt-toolkit
 wheel==0.38.4
