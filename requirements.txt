@@ -34,7 +34,7 @@ torch==1.13.1
     #   torchvision
 torchvision==0.14.1
     # via meter-digits-recognizer
-typing-extensions==4.4.0
+typing-extensions==4.5.0
     # via
     #   torch
     #   torchvision
