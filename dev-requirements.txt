@@ -116,7 +116,7 @@ pillow==9.4.0
     #   matplotlib
     #   meter-digits-recognizer
     #   torchvision
-pip-tools==6.12.2
+pip-tools==6.12.3
     # via automatic-meter-reader (setup.py)
 platformdirs==3.0.0
     # via jupyter-core
