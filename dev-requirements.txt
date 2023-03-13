@@ -34,7 +34,7 @@ debugpy==1.6.6
     # via ipykernel
 decorator==5.1.1
     # via ipython
-exceptiongroup==1.1.0
+exceptiongroup==1.1.1
     # via pytest
 executing==1.2.0
     # via stack-data
