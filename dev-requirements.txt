@@ -73,7 +73,7 @@ matplotlib-inline==0.1.6
     #   ipython
 mccabe==0.7.0
     # via flake8
-meter-digits-recognizer==0.1.11
+meter-digits-recognizer==0.1.12
     # via automatic-meter-reader (setup.py)
 nest-asyncio==1.5.6
     # via ipykernel
