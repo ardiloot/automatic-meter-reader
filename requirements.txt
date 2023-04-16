@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=requirements.txt
 #
-meter-digits-recognizer==0.1.10
+meter-digits-recognizer==0.1.11
     # via automatic-meter-reader (setup.py)
 numpy==1.24.2
     # via
