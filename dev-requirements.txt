@@ -85,7 +85,7 @@ numpy==1.24.2
     #   matplotlib
     #   meter-digits-recognizer
     #   opencv-python
-opencv-python==4.7.0.72
+opencv-python==4.6.0.66
     # via
     #   automatic-meter-reader (setup.py)
     #   meter-digits-recognizer
