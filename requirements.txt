@@ -6,7 +6,7 @@
 #
 meter-digits-recognizer==0.1.12
     # via automatic-meter-reader (setup.py)
-numpy==1.24.2
+numpy==1.24.3
     # via
     #   automatic-meter-reader (setup.py)
     #   meter-digits-recognizer
