@@ -55,7 +55,7 @@ jedi==0.18.2
     # via ipython
 jupyter-client==8.2.0
     # via ipykernel
-jupyter-core==5.3.0
+jupyter-core==5.3.2
     # via
     #   ipykernel
     #   jupyter-client
