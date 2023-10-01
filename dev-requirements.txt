@@ -75,7 +75,7 @@ mccabe==0.7.0
     # via flake8
 meter-digits-recognizer==0.1.13
     # via automatic-meter-reader (setup.py)
-nest-asyncio==1.5.6
+nest-asyncio==1.5.8
     # via ipykernel
 numpy==1.24.3
     # via
