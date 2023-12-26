@@ -16,7 +16,7 @@ classifiers = [
 dependencies = [
     "numpy",
     "opencv-python",
-    "meter-digits-recognizer==0.1.13",
+    "meter-digits-recognizer==0.2.0",
 ]
 dynamic = ["version"]
 
