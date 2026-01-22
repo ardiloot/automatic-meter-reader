@@ -155,7 +155,7 @@ typing-extensions==4.14.1
     # via ipython
 wcwidth==0.2.13
     # via prompt-toolkit
-wheel==0.45.1
+wheel==0.46.2
     # via pip-tools
 widgetsnbextension==4.0.14
     # via ipywidgets
